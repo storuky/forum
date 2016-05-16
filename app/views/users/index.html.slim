@@ -1,0 +1,18 @@
+div content-for="bredcrumbs"
+  a.link href="/" Главная
+  '  /
+  span Пользователи
+
+table.table
+  tbody.bg-white
+    tr ng-repeat="user in ctrl.users.collection"
+      td.w1
+        img ng-src="{{user.avatar_url}}" height="50"
+      td
+        a.link ui-sref="user_path(user)" @{{user.name}}
+        span.only-moderator
+          a.btn.btn-danger.btn-sm ng-click="ctrl.ban(user)" ng-hide="user.banned" Забанить
+          a.btn.btn-success.btn-sm ng-click="ctrl.unban(user)" ng-show="user.banned" Разбанить
+
+
+div paging="" page="ctrl.users.page" page-size="10" total="ctrl.users.total_count" paging-action="ctrl.query(page)"

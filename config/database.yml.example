@@ -1,0 +1,25 @@
+default: &default
+  adapter: postgresql
+  encoding: unicode
+  username: postgres
+  pool: 5
+
+development:
+  <<: *default
+  database: forum_dev
+
+test:
+  <<: *default
+  database: forum_test
+
+staging:
+  <<: *default
+  database: forum_stage
+
+release:
+  <<: *default
+  database: forum_release
+
+production:
+  <<: *default
+  database: forum_prod

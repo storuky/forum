@@ -1,0 +1,25 @@
+div content-for="bredcrumbs"
+  a.link href="/" Главная
+  '  /
+  a.link ui-sref="theme_path(ctrl.topic.resource.theme)" ng-bind="ctrl.topic.resource.theme.title"
+  '  /
+  span ng-bind="ctrl.topic.resource.title"
+
+h1 ng-bind="ctrl.topic.resource.title"
+
+post ng-class="{'main-post': $first}" ng-repeat="post in ctrl.posts.collection" post="post"
+
+div paging="" page="ctrl.posts.page" page-size="20" total="ctrl.posts.total_count" paging-action="ctrl.query(page)"
+
+.reply ng-show="gon.current_user"
+  .reply__title Отправить ответ
+
+  .reply__form
+    input.form-control type="text" ng-model="ctrl.post.title" placeholder="Заголовок"
+    textarea.form-control ng-model="ctrl.post.content" placeholder="Сообщение"
+
+  .reply__footer.text-right
+    a.btn.btn-primary ng-click="ctrl.send()" Отправить
+
+.reply-no ng-hide="gon.current_user"
+  | Для отправки постов необходимо авторизоваться

@@ -1,0 +1,11 @@
+div content-for="bredcrumbs"
+  a.link href="/" Главная
+  '  /
+  a.link ng-bind="ctrl.theme.resource.title" ui-sref="theme_path(ctrl.resource.theme)"
+  '  /
+  a.link ng-bind="ctrl.topic.title" ui-sref="topic_path(ctrl.topic)"
+  ' / Редактировать топик
+.page.bg-white
+  h1 Редактировать топик
+
+  = render "form"

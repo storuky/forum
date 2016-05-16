@@ -1,0 +1,43 @@
+.ng-cloak ng-controller="SignCtrl as ctrl"
+  .sidebar__header.bg-blue.text-white
+    .sign-out ng-click="ctrl.sign.out()" ng-show="gon.current_user" Выход
+    .sidebar__title ng-bind="ctrl.title[ctrl.method]"
+  .sidebar__content
+    form ng-submit="ctrl.sign[ctrl.method]()" ng-hide="gon.current_user"
+      .form-group ng-show="ctrl.method == 'up'"
+        label.label Имя
+        input.form-control type="text" ng-model="ctrl.user.name"
+      .form-group
+        label.label Эл. почта
+        input.form-control type="email" ng-model="ctrl.user.email"
+      .form-group
+        label.label Пароль
+        input.form-control type="password" ng-model="ctrl.user.password"
+      .form-group
+        div ng-model="ctrl.user.recaptcha" vc-recaptcha="" key="'#{Rails.application.secrets[:recaptcha]["public_key"]}'"
+      .form-footer
+        div ng-show="ctrl.method == 'in'"
+          button.btn.btn-primary Войти
+          a.link ng-click="ctrl.method='up'" href="" Зарегистрироваться
+        div ng-show="ctrl.method == 'up'"
+          button.btn.btn-primary Зарегистрироваться
+          a.link ng-click="ctrl.method='in'" href="" Войти
+    div ng-show="gon.current_user"
+      .user-info.text-center
+        label.user-info__avatar
+          input.hidden type="file" fileupload="Routes.uploads_avatar_path()" ng-model="gon.current_user.avatar_url"
+          img ng-src="{{gon.current_user.avatar_url}}" width="150" height="150"
+
+        .user-info__metrics
+          .post__user-metric
+            span.bold На сайте с:
+            | &nbsp;
+            span  ng-bind="gon.current_user.created_at | date:'dd.MM.yyyy'"
+          .post__user-metric
+            span.bold Репутация:
+            | &nbsp;
+            span ng-bind="gon.current_user.rating"
+          .post__user-metric
+            span.bold Постов:
+            | &nbsp;
+            span ng-bind="gon.current_user.posts_count"

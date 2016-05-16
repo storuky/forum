@@ -1,0 +1,33 @@
+div content-for="bredcrumbs"
+  a.link href="/" Главная
+  '  /
+  a.link ui-sref="users_path" Пользователи
+  '  /
+  span ng-bind="ctrl.user.resource.name"
+
+h1 ng-bind="ctrl.user.resource.name"
+
+.clearfix
+  .pull-left
+    img ng-src="{{ctrl.user.resource.avatar_url}}" width="150"
+  .user-metrics
+    .user-metric
+      span.bold На сайте с:
+      | &nbsp;
+      span  ng-bind="ctrl.user.resource.created_at | date:'dd.MM.yyyy в HH:mm'"
+    .user-metric
+      span.bold Рейтинг:
+      | &nbsp;
+      rating user="ctrl.user.resource"
+    .user-metric
+      span.bold Был онлайн:
+      | &nbsp;
+      span  ng-bind="ctrl.user.resource.updated_at | date:'dd.MM.yyyy в HH:mm'"
+    .user-metric
+      span.bold Репутация:
+      | &nbsp;
+      span ng-bind="ctrl.user.resource.rating"
+    .user-metric
+      span.bold Постов:
+      | &nbsp;
+      span ng-bind="ctrl.user.resource.posts_count"

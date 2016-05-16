@@ -1,0 +1,29 @@
+development: &generic
+  #min_prefix_len: 2
+  mem_limit: 256M
+  enable_star: 1
+  expand_keywords: 1
+  index_exact_words: 1
+  min_infix_len: 3
+  min_word_len: 3
+  morphology: stem_enru
+  charset_type: utf-8
+  max_matches: 100000
+  per_page: 100000
+  utf8: true
+  mysql41: 9421
+  charset_table: "0..9, A..Z->a..z, _, a..z, \
+    U+410..U+42F->U+430..U+44F, U+430..U+44F, U+401->U+0435, U+451->U+0435"
+
+staging:
+  <<: *generic
+  mysql41: 9419
+
+production:
+  <<: *generic
+  mysql41: 9450
+
+test:
+  <<: *generic
+  mysql41: 9418
+  quiet_deltas: true

@@ -1,0 +1,9 @@
+div content-for="bredcrumbs"
+  a.link href="/" Главная
+  '  /
+  a.link ng-bind="ctrl.theme.resource.title" ui-sref="theme_path(ctrl.theme.resource)"
+  ' / Новый топик
+.page.bg-white
+  h1 Новый топик
+
+  = render "form"

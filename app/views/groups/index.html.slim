@@ -1,0 +1,39 @@
+div content-for="bredcrumbs"
+  span Главная
+  .bredcrumbs__actions
+    a.btn.btn-success.only-admin ui-sref="new_group_path" Создать раздел
+table.table
+  thead.bg-blue.text-white
+    tr
+      td Название
+      td.text-center Тем
+      td.text-center Постов
+      td Последний топик
+  tbody.bg-white ng-repeat="group in ctrl.groups.collection"
+    tr
+      td colspan="4"
+        b ng-bind="group.title"
+        .table-actions.pull-right.only-admin
+          a.btn.btn-success.btn-sm ng-href="/themes/new?group_id={{group.id}}" Создать подраздел
+          a.btn.btn-primary.btn-sm ui-sref="edit_group_path(group)" Редактировать
+          a.btn.btn-danger.btn-sm ng-click="ctrl.destroy_group(group)" Удалить
+
+    tr ng-repeat="theme in group.themes"
+      td
+        a.link.bold ui-sref="theme_path(theme)" ng-bind="theme.title"
+        .text-gray ng-bind="theme.description"
+        .table-actions.only-admin
+          a.btn.btn-primary.btn-sm ui-sref="edit_theme_path(theme)" Редактировать
+          a.btn.btn-danger.btn-sm ng-click="ctrl.destroy_theme(theme)" Удалить
+      td.w1.text-center ng-bind="theme.topics_count"
+      td.w1.text-center ng-bind="theme.posts_count"
+      td.w1
+        a.link.bold ng-bind="theme.last_post.topic.title" ui-sref="topic_path(theme.last_post.topic)"
+        .text-gray ng-show="theme.last_post"
+          ' от
+          a.link.text-red.bold ui-sref="user_path(theme.last_post.user)" ng-bind="theme.last_post.user.name"
+          '
+          span ng-bind="theme.last_post.created_at | date:'dd.MM.yyyy HH:mm'"
+        
+        .text-gray ng-hide="theme.last_post"
+          | нет постов

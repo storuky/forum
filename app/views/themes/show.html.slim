@@ -1,0 +1,33 @@
+div content-for="bredcrumbs"
+  a.link href="/" Главная
+  '  /
+  span ng-bind="ctrl.theme.resource.title"
+  .bredcrumbs__actions
+    a.btn.btn-success ng-href="/topics/new?theme_id={{ctrl.theme.resource.id}}" Начать топик
+table.table
+  thead.bg-blue.text-white
+    tr
+      td Название
+      td.text-center Постов
+      td Последний пост
+  tbody.bg-white ng-if="ctrl.topics.collection.length"
+    tr ng-repeat="topic in ctrl.topics.collection"
+      td
+        a.link.bold ui-sref="topic_path(topic)" ng-bind="topic.title"
+        .table-actions.only-moderator
+          a.btn.btn-danger.btn-sm ng-click="ctrl.destroy(topic)" Удалить
+          a.btn.btn-primary.btn-sm ui-sref="edit_topic_path(topic)" Редактировать
+      td.w1.text-center ng-bind="topic.posts_count"
+      td.w1
+        a.link.bold ng-bind="topic.last_post.title" ui-sref="topic_path(topic)"
+        .text-gray
+          ' от
+          a.link.text-red.bold ui-sref="user_path(topic.last_post.user)" ng-bind="topic.last_post.user.name"
+          '
+          span ng-bind="topic.last_post.created_at | date:'dd.MM.yyyy HH:mm'"
+        
+  tbody.bg-white ng-if="!ctrl.topics.collection.length"
+    tr
+      td colspan="4" В данной теме нет топиков
+
+div paging="" page="ctrl.topics.page" page-size="20" total="ctrl.topics.total_count" paging-action="ctrl.query(page)"

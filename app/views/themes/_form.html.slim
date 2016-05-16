@@ -1,0 +1,6 @@
+= form_for Theme.new do |f|
+  .form-group
+    label.label Заголовок
+    = f.text_field :title, class: "form-control"
+  .text-right
+    button.btn.btn-primary Сохранить

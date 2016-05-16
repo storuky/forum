@@ -1,0 +1,171 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  background: #E8E8E8;
+  min-width: 1100px;
+  font-size: 13px;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.clearfix:after {
+  content: "";
+  display: block;
+  height: 0;
+  clear: both;
+  visibility: hidden;
+}
+
+.ng-cloak, .hidden {
+  display: none !important;
+}
+
+.link {
+  color: #3c699c;
+}
+
+.bold {
+  font-weight: bold;
+}
+
+.pull-left {
+  float: left;
+}
+
+.pull-right {
+  float: right;
+}
+
+.middle-ib {
+  vertical-align: middle;
+  display: inline-block;
+}
+
+.text-gray {
+  color: #6C6C6C;
+}
+
+.text-red {
+  color: #AA0000;
+}
+
+.text-white {
+  color: white;
+}
+
+.text-green {
+  color: green;
+}
+
+.text-center {
+  text-align: center;
+}
+
+.text-left {
+  text-align: left;
+}
+
+.text-right {
+  text-align: right;
+}
+
+.table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 13px;
+}
+
+.table td {
+  vertical-align: middle;
+  padding: 15px;
+  line-height: 18px;
+  border-bottom: 1px solid #e7e7e7;
+}
+
+.table td.w1, .table th.w1 {
+  width: 1px;
+  white-space: nowrap;
+}
+
+.bg-white {
+  background: white;
+}
+
+.bg-blue {
+  background: #477BB8;
+}
+
+.label {
+  display: block;
+  padding-bottom: 5px;
+  color: #6C6C6C;
+}
+
+.form-group {
+  margin-bottom: 15px;
+}
+
+input[type="email"].form-control,
+input[type="password"].form-control,
+input[type="text"].form-control {
+  height: 34px;
+  border: 1px solid #e7e7e7;
+  width: 100%;
+  padding-left: 10px;
+}
+
+textarea.form-control {
+  width: 100%;
+  border: 1px solid #e7e7e7;
+  padding: 10px;
+  min-height: 80px;
+}
+
+.form-footer .btn {
+  margin-right: 15px;
+}
+
+.btn {
+  display: inline-block;
+  padding: 8px 18px;
+  border: none;
+  cursor: pointer;
+  text-decoration: none;
+}
+
+.btn-sm {
+  font-size: 12px;
+  padding: 4px 10px;
+}
+
+.btn-primary {
+  background: #477bb8;
+  color: white;
+}
+
+.btn-primary:hover {
+  background: #6399D8;
+}
+
+.btn-success {
+  background: #009665;
+  color: white;
+}
+
+.btn-success:hover {
+  background: #04AD76;
+}
+
+.btn-danger {
+  background: #AA0000;
+  color: white;
+}
+
+.btn-danger:hover {
+  background: #BB0D0D;
+}
+
+.rails-errors {
+  color: red;
+}

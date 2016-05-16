@@ -1,0 +1,11 @@
+div content-for="bredcrumbs"
+  a.link href="/" Главная
+  '  / Поиск
+  span ng-show="ctrl.q"
+    | «
+    span ng-bind="ctrl.q"
+    | »
+
+post ng-class="{'main-post': $first}" ng-repeat="post in ctrl.posts.collection" post="post"
+
+div paging="" page="ctrl.posts.page" page-size="10" total="ctrl.posts.total_count" paging-action="ctrl.query(page)"

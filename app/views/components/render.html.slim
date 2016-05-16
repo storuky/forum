@@ -1,0 +1,3 @@
+- Dir[File.dirname(__FILE__) + '/_*.html*'].each do |partial|
+  script type="text/ng-template" id="#{File.basename(partial).gsub('.slim', '').gsub(/^_/, '')}"
+    = render file: partial

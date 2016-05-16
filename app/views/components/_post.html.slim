@@ -1,0 +1,26 @@
+.post.clearfix
+  .post__user
+    .middle-ib
+      a.post__user-avatar ui-sref="user_path(post.user)"
+        img ng-src="{{post.user.avatar_url}}" width="75"
+    .middle-ib
+      .post__user-name
+        a.link.text-red ui-sref="user_path(post.user)" ng-bind="post.user.name"
+        rating user="post.user"
+      .post__user-role
+        .text-gray ng-bind="post.user.role"
+      .post__user-metrics.text-gray
+        .post__user-metric
+          span.bold Постов:
+          | &nbsp;
+          span ng-bind="post.user.posts_count"
+        .post__user-metric
+          span.bold На сайте с:
+          | &nbsp;
+          span  ng-bind="post.user.created_at | date:'dd.MM.yyyy'"
+  .post__content
+    a.post__title ng-bind="post.title" ui-sref="topic_path(post.topic)"
+    div ng-bind="post.content"
+  
+  .post__actions.only-moderator
+    a.btn.btn-danger.btn-sm ng-click="destroy()" Удалить

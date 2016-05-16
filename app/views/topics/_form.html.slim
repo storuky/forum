@@ -1,0 +1,9 @@
+= form_for Topic.new do |f|
+  .form-group
+    label.label Заголовок
+    = f.text_field :title, class: "form-control"
+  .form-group
+    label.label Текст
+    = f.text_area :content, class: "form-control"
+  .text-right
+    button.btn.btn-primary Сохранить
