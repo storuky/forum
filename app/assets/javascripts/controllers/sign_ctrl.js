@@ -46,5 +46,5 @@ app.controller('SignCtrl', ['$scope', '$http', '$interval', 'User', function ($s
     User.metrics(function (res) {
       angular.extend(gon.current_user, res);
     })
-  }, 10000)
+  }, 30000)
 }])
