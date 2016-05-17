@@ -26,7 +26,7 @@ app.controller('TopicsCtrl', ['$scope', '$location', 'Topic', 'action', 'Post', 
         ctrl.post = {
           topic_id: params.id
         }
-        ctrl.query(Math.ceil(ctrl.posts.total_count/10))
+        ctrl.query(Math.ceil(ctrl.posts.total_count/20))
       })
     }
   })
