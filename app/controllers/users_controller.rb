@@ -49,6 +49,6 @@ class UsersController < ApplicationController
 
   private
     def set_model
-      @model = User
+      @model = User.order("rating DESC")
     end
 end
