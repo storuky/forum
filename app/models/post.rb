@@ -19,7 +19,8 @@ class Post < ActiveRecord::Base
 
   private
     def set_last_post
-      last_post = self.as_json(include: {topic: {exclude: [:last_post]}, user: {}})
+      last_post = self.as_json(include: {topic: {except: [:last_post]}, user: {}})
+
       topic.update(last_post: last_post)
       theme.update(last_post: last_post)
     end
