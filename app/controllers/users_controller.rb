@@ -1,7 +1,8 @@
 class UsersController < ApplicationController
   include Spa
 
-  before_action :set_resource, only: [:ban, :unban]
+  before_action :set_resource, only: [:ban, :unban, :show]
+  before_action :set_title_and_description, only: [:show]
 
   def touch
     current_user.touch if current_user
@@ -50,5 +51,10 @@ class UsersController < ApplicationController
   private
     def set_model
       @model = User.order("rating DESC")
+    end
+
+    def set_title_and_description
+      @title = @resource.name
+      @description = "Рейтинг: #{@resource.rating}, Постов: #{@resource.posts_count}"
     end
 end

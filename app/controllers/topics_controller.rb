@@ -2,9 +2,16 @@ class TopicsController < ApplicationController
   include Spa
   before_action :timeout, only: :create
 
+  before_action :set_title_and_description, only: [:show]
+
   private
     def set_model
       @model = Topic.joins(:theme, :user).order("topics.updated_at DESC")
+    end
+
+    def set_title_and_description
+      @title = @resource.title
+      @description = @resource.content
     end
 
     def filter_fields
