@@ -1,3 +1,5 @@
+[Test it now](http://forum.habrapp.ru/)
+
 ##How to start
 
 Dependencies: PostgreSQL, Sphinx, ImageMagick
