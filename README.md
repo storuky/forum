@@ -1,4 +1,4 @@
-[Test it now](http://forum.habrapp.ru/)
+Deployed on DO: [Test it now](http://forum.habrapp.ru/)
 
 ##How to start
 
