@@ -4,6 +4,7 @@ class Topic < ActiveRecord::Base
   belongs_to :user, :counter_cache => true
 
   validates_presence_of :theme, :title, :content
+  validates_length_of :title, minimum: 3, maximum: 30
 
   after_create do
     Post.create(title: title, content: content, user_id: user_id, theme_id: theme_id, topic_id: id)

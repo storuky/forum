@@ -6,6 +6,7 @@ class Post < ActiveRecord::Base
   after_create :set_last_post
 
   validates :content, presence: true, length: { in: 2..300 }
+  validates_length_of :title, minimum: 3, maximum: 30
 
   def self.pluck_fields
     ["posts.id", "posts.title", "posts.content", "users.id", "users.created_at", "users.name", "users.rating", "users.posts_count", "users.avatar_url", "topics.id", "topics.title"]
